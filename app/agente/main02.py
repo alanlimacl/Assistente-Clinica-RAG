@@ -38,7 +38,7 @@ agente = create_agent(model=llm,
                       )
 
 pergunta = "Quais exames tem?"
-resposta = agente.invoke({"input": pergunta})
+resposta = agente.invoke({"messages": [("user", pergunta)]})
 
 print("\n--- RESPOSTA FINAL ---")
-print(resposta)
+print(resposta['messages'][-1].content)
